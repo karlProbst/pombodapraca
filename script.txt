@@ -1,0 +1,26 @@
+Start screen:
+	---
+Cena 1 - Começo:
+	Passaro voando pelos ceus, no bnackground da pra ver a floresta pegando fogo. 
+Outros pássaros estão fugindo, enquanto você esta indo em direção a queimada.
+
+Cena 2 - Salvar o ninho:
+	Na proxima cena voce chega na floresta que esta pegando fogo, voce tem q atravessar ate chegar ao seu ninho.
+Está brilhando com uma luz branca, encoste para rodar a cutscene.
+Cutscene:
+cutscene mostrando o ovinho(zoom devagar).
+Na mesma cutscene voce de alguma forma pousa num navio que esta passando para se salvar - fade to black.
+
+Cena 3 - Navio:
+	Pombo está machucado e nao consegue voar, ele tem q chegar no ponto mais alto pulando nas caixas.
+Quando ele encosta na pombinha que se encontra no topo - cutscene.
+Cutscene:
+Pombinha chamando ajuda humana pra te amparar - fade to black.
+
+Cena 4 - Cais:
+	Nessa Cena pombo está em um cais, ha um grande tubo de esgoto derramando poluição no mar.
+Os predios sao muito altos, o jeito de prosseguir é entrando em um bueiro.
+Cutscene:
+rato mestre sabio te ensinando algo?!...
+Cena 5 -...
+Cena 6-fim.

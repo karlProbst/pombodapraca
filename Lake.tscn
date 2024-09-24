@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=3 uid="uid://foaxl2pwnalr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4uls"]
+size = Vector2(1225.38, 954.751)
+
+[sub_resource type="Gradient" id="Gradient_gxtrp"]
+offsets = PackedFloat32Array(0.467797, 0.68262, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.84, 0.84, 0.84, 0.631373, 1, 1, 1, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qdypu"]
+noise_type = 2
+frequency = 0.1132
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ar1rt"]
+height = 182
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.2
+color_ramp = SubResource("Gradient_gxtrp")
+noise = SubResource("FastNoiseLite_qdypu")
+
+[sub_resource type="Gradient" id="Gradient_x3xng"]
+offsets = PackedFloat32Array(0.29471, 0.638596, 0.989924)
+colors = PackedColorArray(0, 0, 0, 1, 0.0999, 0.12691, 0.37, 1, 0.051, 0.4029, 0.51, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_avq6b"]
+gradient = SubResource("Gradient_x3xng")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_q7ja6"]
+offsets = PackedFloat32Array(0.345, 0.8925, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.560784, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2uyxi"]
+gradient = SubResource("Gradient_q7ja6")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_c14qh"]
+interpolation_mode = 2
+colors = PackedColorArray(0.048, 0.1888, 0.4, 1, 0.0031, 0.0542499, 0.31, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nj2i6"]
+frequency = 0.0085
+fractal_lacunarity = 3.595
+fractal_gain = 0.485
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cla87"]
+width = 1024
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.2
+normalize = false
+color_ramp = SubResource("Gradient_c14qh")
+noise = SubResource("FastNoiseLite_nj2i6")
+
+[node name="lake" type="Area2D" groups=["water"]]
+modulate = Color(1, 1, 1, 0.831373)
+position = Vector2(-318, 348)
+scale = Vector2(1.25877, 0.576)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(613.12, 475.75)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_d4uls")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+clip_children = 1
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(2.39651, 1.16129)
+texture = SubResource("NoiseTexture2D_ar1rt")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect3"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(7.99723, 7.94841)
+texture = SubResource("GradientTexture2D_avq6b")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+clip_children = 1
+offset_right = 512.0
+offset_bottom = 512.0
+scale = Vector2(2.39651, 1.16129)
+texture = SubResource("NoiseTexture2D_ar1rt")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect5"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(7.99723, 7.94841)
+texture = SubResource("GradientTexture2D_avq6b")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+clip_children = 1
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(19.1649, 9.35701)
+texture = SubResource("GradientTexture2D_2uyxi")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 512.0
+scale = Vector2(0.0625046, 0.125564)
+texture = SubResource("NoiseTexture2D_cla87")
+
+[node name="TextureRect4" type="TextureRect" parent="TextureRect2"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(1.00008, 0.997661)
+texture = SubResource("GradientTexture2D_2uyxi")

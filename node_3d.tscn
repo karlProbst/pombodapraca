@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cquuwnqbd8ndh"]
+
+[ext_resource type="Script" path="res://area_3d.gd" id="1_c3f1r"]
+[ext_resource type="PackedScene" uid="uid://bul2va46g72wc" path="res://FlyingToForest.tscn" id="1_kfe2b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ioh4j"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl3se"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ioh4j")
+
+[sub_resource type="BoxMesh" id="BoxMesh_2q0pf"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_yl3se")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.998666, -5.2211e-09, -0.0516387, 0.00106612, 0.999787, -0.0206183, 0.0516277, -0.0206459, -0.998453, 0, 0, -1.02986)
+mesh = SubResource("BoxMesh_2q0pf")
+script = ExtResource("1_c3f1r")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.38619)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Node2D" parent="SubViewport" instance=ExtResource("1_kfe2b")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.32358)
