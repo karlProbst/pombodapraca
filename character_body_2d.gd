@@ -12,7 +12,7 @@ const MAX_PITCH_ANGLE = 90.0  # Maximum up/down pitch angle (degrees)
 const PITCH_SPEED = 60.0
 var flight_speed = 0
 var bounce_damping = 0.67
-var buoyancy_force = -8500
+var buoyancy_force = -3500
 var water_time=0
 @onready var animatedSprite = $Pivot/Pombo
 @onready var scaleDefault=scale
@@ -137,20 +137,12 @@ func _physics_process(delta: float) -> void:
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if in_water:
-		water_time+=delta*1.5
-		
-		# Simulate gravity pulling the player down
-		var buoyance_multiply_vel=abs(velocity.y/2600)
-		
+		water_time+=delta*7
 		velocity.y += GRAVITY * delta
 		# Apply upward buoyancy force
-		
-		if velocity.y<0:
-			buoyance_multiply_vel=1
-		if buoyance_multiply_vel<1:
-			buoyance_multiply_vel=1
+
 		print(buoyancy_force)
-		velocity.y += buoyancy_force * delta*(buoyance_multiply_vel*(1+water_time))
+		velocity.y += buoyancy_force * delta*((1+water_time))
 
 		if velocity.y < 0:
 			velocity.y *= bounce_damping

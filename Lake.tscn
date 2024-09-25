@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://foaxl2pwnalr"]
+[gd_scene load_steps=22 format=3 uid="uid://foaxl2pwnalr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4uls"]
 size = Vector2(1225.38, 954.751)
@@ -36,9 +36,10 @@ gradient = SubResource("Gradient_q7ja6")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="Gradient" id="Gradient_c14qh"]
-interpolation_mode = 2
-colors = PackedColorArray(0.048, 0.1888, 0.4, 1, 0.0031, 0.0542499, 0.31, 1)
+[sub_resource type="Gradient" id="Gradient_c2cri"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nj2i6"]
 frequency = 0.0085
@@ -51,8 +52,105 @@ generate_mipmaps = false
 seamless = true
 seamless_blend_skirt = 0.2
 normalize = false
-color_ramp = SubResource("Gradient_c14qh")
+color_ramp = SubResource("Gradient_c2cri")
 noise = SubResource("FastNoiseLite_nj2i6")
+
+[sub_resource type="Animation" id="Animation_qmc5j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect3:texture:noise:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2/TextureRect:texture:color_ramp")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("Gradient_c2cri")]
+}
+
+[sub_resource type="Gradient" id="Gradient_c14qh"]
+offsets = PackedFloat32Array(0.1, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_3q4oi"]
+offsets = PackedFloat32Array(0.3, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_5k7s3"]
+offsets = PackedFloat32Array(0.5, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_36hf7"]
+offsets = PackedFloat32Array(0.6, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_vg8w1"]
+offsets = PackedFloat32Array(0.8, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_1jd0a"]
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_tes5c"]
+offsets = PackedFloat32Array(0.9, 1)
+colors = PackedColorArray(0.0031, 0.0542499, 0.31, 1, 0.048, 0.1888, 0.4, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_s10ow"]
+resource_name = "normalWaveFlicker"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect3:texture:noise:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.43333, 1.96667),
+"transitions": PackedFloat32Array(1.68179, 0.554785, 1, 0.554785, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -15, 0), Vector3(0, 0, 0), Vector3(0, -15, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2/TextureRect:texture:color_ramp")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.433333, 0.633333, 0.833333, 1.06667, 1.23333, 1.43333, 1.6, 1.73333, 1.86667, 2, 2.13333, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("Gradient_c14qh"), SubResource("Gradient_c2cri"), SubResource("Gradient_3q4oi"), SubResource("Gradient_5k7s3"), SubResource("Gradient_36hf7"), SubResource("Gradient_vg8w1"), SubResource("Gradient_1jd0a"), SubResource("Gradient_tes5c"), SubResource("Gradient_1jd0a"), SubResource("Gradient_vg8w1"), SubResource("Gradient_36hf7"), SubResource("Gradient_5k7s3"), SubResource("Gradient_3q4oi"), SubResource("Gradient_c2cri"), SubResource("Gradient_c14qh")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7u7g"]
+_data = {
+"RESET": SubResource("Animation_qmc5j"),
+"normalWaveFlicker": SubResource("Animation_s10ow")
+}
 
 [node name="lake" type="Area2D" groups=["water"]]
 modulate = Color(1, 1, 1, 0.831373)
@@ -62,7 +160,6 @@ scale = Vector2(1.25877, 0.576)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(613.12, 475.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_d4uls")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
@@ -117,3 +214,10 @@ offset_right = 64.0
 offset_bottom = 64.0
 scale = Vector2(1.00008, 0.997661)
 texture = SubResource("GradientTexture2D_2uyxi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m7u7g")
+}
+autoplay = "normalWaveFlicker"
+speed_scale = 0.379

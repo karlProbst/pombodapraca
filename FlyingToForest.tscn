@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://bul2va46g72wc"]
+[gd_scene load_steps=97 format=3 uid="uid://bul2va46g72wc"]
 
 [ext_resource type="Script" path="res://Scene1sky.gd" id="1_uull2"]
 [ext_resource type="Script" path="res://fire_background.gd" id="2_4bvrq"]
@@ -152,6 +152,68 @@ shader_parameter/grain_size = 0.1
 shader_parameter/colors = 10.0
 shader_parameter/dither = 1.0
 
+[sub_resource type="Animation" id="Animation_movt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mleave/Polygon2D:texture_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106.04, 134.015)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fleave/Polygon2D:texture_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(106.04, 134.015)]
+}
+
+[sub_resource type="Animation" id="Animation_ak4y5"]
+resource_name = "windLeaves"
+loop_mode = 1
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mleave/Polygon2D:texture_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [Vector2(106.04, 134.015), Vector2(116, 134.015), Vector2(106.04, 134.015)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fleave/Polygon2D:texture_offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [Vector2(106.04, 134.015), Vector2(108.59, 134.015), Vector2(106.04, 134.015)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbbej"]
+_data = {
+"RESET": SubResource("Animation_movt5"),
+"windLeaves": SubResource("Animation_ak4y5")
+}
+
 [sub_resource type="Gradient" id="Gradient_g0k1p"]
 offsets = PackedFloat32Array(0.730479, 1)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
@@ -175,7 +237,7 @@ color_ramp = SubResource("Gradient_vvmkt")
 noise = SubResource("FastNoiseLite_obyqy")
 
 [sub_resource type="Gradient" id="Gradient_ti66x"]
-offsets = PackedFloat32Array(0.423174, 0.566751)
+offsets = PackedFloat32Array(0.3475, 0.5425)
 colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pm6bo"]
@@ -220,24 +282,20 @@ colors = PackedColorArray(0, 0, 0, 1, 1, 0.53, 0.678833, 0.219608, 1, 0.602167, 
 gradient = SubResource("Gradient_6t0sd")
 fill_to = Vector2(0, 1)
 
-[sub_resource type="Curve" id="Curve_egugj"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.182131, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_sthuf"]
-curve = SubResource("Curve_egugj")
+[sub_resource type="CurveTexture" id="CurveTexture_3dexg"]
 
 [sub_resource type="CurveTexture" id="CurveTexture_k881r"]
 
 [sub_resource type="Curve" id="Curve_ulsbm"]
-max_value = 10.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.99999, 1.59249), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
+max_value = 2.0
+_data = [Vector2(0, 0), 0.0, 4.89362, 0, 0, Vector2(0.0505051, 0.507737), 0.0, 0.0, 0, 0, Vector2(0.0732323, 0.730174), 0.0, 0.0, 0, 0, Vector2(0.0883838, 0.507737), 0.0, 0.0, 0, 0, Vector2(0.590909, 0.969052), 0.0, 0.0, 0, 0, Vector2(0.656566, 0.830754), 0.0, 0.0, 0, 0, Vector2(0.80303, 0.918762), 0.0, 0.0, 0, 0, Vector2(0.921717, 0.868472), -2.26306, -2.26306, 0, 0, Vector2(0.99999, 0.444875), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 10
 
 [sub_resource type="CurveTexture" id="CurveTexture_3q4uk"]
 curve = SubResource("Curve_ulsbm")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cveoi"]
+lifetime_randomness = 1.0
 particle_flag_disable_z = true
 emission_shape_scale = Vector3(10, 1, 1)
 emission_shape = 3
@@ -248,18 +306,18 @@ initial_velocity_max = 71.61
 radial_velocity_min = -5.00002
 radial_velocity_max = 4.99998
 radial_velocity_curve = SubResource("CurveTexture_k881r")
-gravity = Vector3(-18.51, -24.745, 0)
+gravity = Vector3(-22.215, -26.765, 0)
 radial_accel_min = -10.0
 radial_accel_max = 10.0
 tangential_accel_min = -2.0
 tangential_accel_max = 5.0
 scale_max = 4.95
 scale_curve = SubResource("CurveTexture_3q4uk")
-alpha_curve = SubResource("CurveTexture_sthuf")
+emission_curve = SubResource("CurveTexture_3dexg")
 turbulence_noise_strength = 6.26
 
 [sub_resource type="Gradient" id="Gradient_w5qv7"]
-offsets = PackedFloat32Array(0, 0.040678, 0.498305, 1)
+offsets = PackedFloat32Array(0, 0.065, 0.105, 1)
 colors = PackedColorArray(1, 0.283333, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_q1hn7"]
@@ -275,73 +333,6 @@ width = 1000
 height = 1000
 color_ramp = SubResource("Gradient_w5qv7")
 noise = SubResource("FastNoiseLite_q1hn7")
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_s6ohi"]
-
-[sub_resource type="Gradient" id="Gradient_887xo"]
-offsets = PackedFloat32Array(0.444068, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 0.316667, 0, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_rojl5"]
-frequency = 0.0194
-fractal_lacunarity = 3.595
-fractal_gain = 0.485
-fractal_weighted_strength = 0.16
-domain_warp_enabled = true
-domain_warp_amplitude = 2.0
-domain_warp_fractal_octaves = 1
-domain_warp_fractal_lacunarity = 0.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_flv38"]
-width = 3200
-height = 170
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_887xo")
-noise = SubResource("FastNoiseLite_rojl5")
-
-[sub_resource type="Gradient" id="Gradient_0c1k7"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.60678, 1)
-colors = PackedColorArray(1, 0.566667, 0, 1, 0.898839, 0.208388, 0.22129, 0.367743, 0.84, 0, 0.35, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ativp"]
-gradient = SubResource("Gradient_0c1k7")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.9)
-fill_to = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="Gradient" id="Gradient_5fbkg"]
-offsets = PackedFloat32Array(0, 0.99661)
-colors = PackedColorArray(1, 0.966667, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_tdce4"]
-gradient = SubResource("Gradient_5fbkg")
-fill_from = Vector2(1, 1)
-
-[sub_resource type="Gradient" id="Gradient_hjebw"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0.0101695, 0.545763, 0.671186, 1)
-colors = PackedColorArray(1, 1, 0, 1, 1, 0.825852, 0.338785, 1, 0.747004, 0.197883, 0, 1, 0, 0, 0, 0)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_mx0gk"]
-noise_type = 4
-frequency = 0.0004
-fractal_type = 2
-fractal_octaves = 10
-fractal_gain = 1.195
-fractal_weighted_strength = 0.79
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_svb7j"]
-width = 1000
-height = 300
-generate_mipmaps = false
-normalize = false
-color_ramp = SubResource("Gradient_hjebw")
-noise = SubResource("FastNoiseLite_mx0gk")
 
 [sub_resource type="Gradient" id="Gradient_m4s0q"]
 offsets = PackedFloat32Array(0.362712, 0.830508)
@@ -377,6 +368,36 @@ normalize = false
 color_ramp = SubResource("Gradient_5jrlh")
 noise = SubResource("FastNoiseLite_o7tmg")
 
+[sub_resource type="Gradient" id="Gradient_ch7jb"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pc3nm"]
+gradient = SubResource("Gradient_ch7jb")
+fill = 1
+fill_from = Vector2(0.482906, 1)
+fill_to = Vector2(0.474359, 0.444444)
+
+[sub_resource type="Gradient" id="Gradient_887xo"]
+colors = PackedColorArray(1, 0.833333, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rojl5"]
+frequency = 0.0194
+fractal_lacunarity = 3.595
+fractal_gain = 0.485
+fractal_weighted_strength = 0.16
+domain_warp_enabled = true
+domain_warp_amplitude = 2.0
+domain_warp_fractal_octaves = 1
+domain_warp_fractal_lacunarity = 0.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_flv38"]
+width = 1024
+height = 170
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_887xo")
+noise = SubResource("FastNoiseLite_rojl5")
+
 [sub_resource type="Gradient" id="Gradient_q8lbn"]
 interpolation_mode = 2
 colors = PackedColorArray(0.06, 0.06, 0.06, 1, 1, 1, 1, 0)
@@ -406,6 +427,46 @@ noise = SubResource("FastNoiseLite_ncq7u")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vmtr8"]
 atlas = ExtResource("12_3qarq")
+
+[sub_resource type="Gradient" id="Gradient_n6gw1"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.4475, 1)
+colors = PackedColorArray(1, 0.566667, 0, 1, 0.898839, 0.208388, 0.22129, 0.367743, 0.84, 0, 0.35, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aa03y"]
+gradient = SubResource("Gradient_n6gw1")
+fill = 1
+fill_from = Vector2(0.452991, 0.769231)
+fill_to = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_5fbkg"]
+offsets = PackedFloat32Array(0, 0.99661)
+colors = PackedColorArray(1, 0.966667, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tdce4"]
+gradient = SubResource("Gradient_5fbkg")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_hjebw"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0101695, 0.545763, 0.671186, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.825852, 0.338785, 1, 0.747004, 0.197883, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mx0gk"]
+noise_type = 4
+frequency = 0.0004
+fractal_type = 2
+fractal_octaves = 10
+fractal_gain = 1.195
+fractal_weighted_strength = 0.79
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_svb7j"]
+width = 1000
+height = 300
+generate_mipmaps = false
+normalize = false
+color_ramp = SubResource("Gradient_hjebw")
+noise = SubResource("FastNoiseLite_mx0gk")
 
 [sub_resource type="Gradient" id="Gradient_wh2d0"]
 offsets = PackedFloat32Array(0.00677966, 0.284672, 0.99322)
@@ -576,6 +637,13 @@ metadata/_edit_group_ = true
 [node name="TreePraca" type="StaticBody2D" parent="minIsland2"]
 position = Vector2(121, 297)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="minIsland2/TreePraca"]
+libraries = {
+"": SubResource("AnimationLibrary_xbbej")
+}
+autoplay = "windLeaves"
+speed_scale = 0.4
+
 [node name="bleave" type="TextureRect" parent="minIsland2/TreePraca"]
 modulate = Color(0.4, 0.4, 0.4, 0.945098)
 clip_children = 1
@@ -624,7 +692,7 @@ polygon = PackedVector2Array(198, 42, 126, -36, 45, -57, 0, -120, -21, -234, 27,
 uv = PackedVector2Array(344.162, 565.105, 296.894, 513.898, 243.718, 500.112, 214.176, 458.752, 200.389, 383.912, 231.901, 285.438, 300.833, 209.284, 377.643, 95.0542, 357.948, 24.1527, 328.406, 4.45781, 344.162, 37.9391, 350.07, 95.0542, 296.894, 156.108, 271.291, 98.9931, 292.955, 35.9696, 251.596, 77.3288, 251.596, 162.017, 231.901, 217.162, 200.389, 136.413, 139.335, 67.4813, 123.58, 14.3052, 127.519, 91.1152, 164.939, 132.474, 109.793, 124.596, 40.8612, 126.566, 103.885, 138.383, 162.969, 160.047, 172.817, 205.345, 78.2814, 207.315, 42.8307, 179.742, 70.4035, 223.071, 34.9527, 242.109, 97.9763, 234.231, 176.756, 232.262, 176.756, 265.743, 125.549, 360.278, 19.1968, 253.926, 9.34941, 185.65, 3.44096, 259.834, 34.9527, 307.102, 107.824, 409.515, 131.458, 525.715, 109.793, 553.288, 103.885, 582.83, 74.3424, 632.067, 153.122, 565.105, 216.145, 559.196, 289.016, 598.586, 263.413, 545.41)
 
 [node name="mleave" type="TextureRect" parent="minIsland2/TreePraca"]
-modulate = Color(1, 1, 1, 0.552941)
+modulate = Color(1, 1, 1, 0.658824)
 clip_children = 1
 offset_left = 351.0
 offset_top = -686.0
@@ -728,6 +796,7 @@ uv = PackedVector2Array(-125.491, 228.159, -92.4138, 209.092, -114.564, 258.259,
 
 [node name="Node2D" type="Node2D" parent="minIsland2/rock"]
 modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(0.666664, 0)
 
 [node name="MatimPmg" type="Sprite2D" parent="minIsland2/rock/Node2D"]
 modulate = Color(0.414482, 0.57605, 0, 1)
@@ -956,26 +1025,28 @@ scale = Vector2(0.0604044, 0.052769)
 [node name="SmokeGPUParticles2D" type="GPUParticles2D" parent="SubViewport/Sky2/ForestFiring/smoke"]
 self_modulate = Color(0.82606, 0.82606, 0.82606, 1)
 clip_children = 1
-position = Vector2(7383.57, 852.773)
+position = Vector2(6467.54, 454.813)
 skew = -0.581195
-amount = 100
+amount = 65
+amount_ratio = 0.6521
 process_material = SubResource("ParticleProcessMaterial_cveoi")
 texture = ExtResource("20_w24ku")
 lifetime = 7.0
-preprocess = 10.0
-speed_scale = 0.3
-randomness = 0.04
+preprocess = 20.81
+speed_scale = 0.25
+explosiveness = 0.04
+randomness = 0.32
 interpolate = false
 fract_delta = false
 metadata/_edit_group_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/smoke/SmokeGPUParticles2D"]
 show_behind_parent = true
-offset_left = -11745.4
-offset_top = -23875.0
-offset_right = -10593.4
-offset_bottom = -23185.0
-scale = Vector2(22.6947, 36.0173)
+offset_left = -12086.5
+offset_top = -18660.4
+offset_right = -10934.5
+offset_bottom = -17970.4
+scale = Vector2(18.3624, 29.5409)
 texture = SubResource("NoiseTexture2D_vr06i")
 expand_mode = 1
 script = ExtResource("21_ejj3w")
@@ -987,41 +1058,6 @@ scale = Vector2(0.217, 0.0836103)
 script = ExtResource("2_4bvrq")
 followNode = NodePath("../../../../Camera2D")
 metadata/_edit_group_ = true
-
-[node name="GradientMask" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground"]
-visible = false
-clip_children = 1
-offset_right = 1026.0
-offset_bottom = 1602.0
-texture = SubResource("CurveXYZTexture_s6ohi")
-
-[node name="FireRed" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GradientMask"]
-layout_mode = 0
-offset_right = 1024.0
-offset_bottom = 1536.0
-texture = SubResource("NoiseTexture2D_flv38")
-expand_mode = 1
-
-[node name="GradientMask2" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground"]
-clip_children = 1
-offset_right = 1026.0
-offset_bottom = 1602.0
-texture = SubResource("GradientTexture2D_ativp")
-
-[node name="Gradient" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GradientMask2"]
-visible = false
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 193.0
-scale = Vector2(16, 7.92)
-texture = SubResource("GradientTexture2D_tdce4")
-
-[node name="TextureRect" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GradientMask2"]
-layout_mode = 0
-offset_right = 1000.0
-offset_bottom = 1000.0
-scale = Vector2(2.05691, 1.60588)
-texture = SubResource("NoiseTexture2D_svb7j")
 
 [node name="GreenGround" type="Node2D" parent="SubViewport/Sky2/ForestFiring/FireBackground"]
 position = Vector2(584.663, 1344.47)
@@ -1075,15 +1111,30 @@ scale = Vector2(0.00274426, 0.0174222)
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(5999.21, 271.719, 3431.73, -214.471, 732.59, -700.658, -2229.89, -895.135, -4599.87, -895.135, -6509.02, -554.803, -7759.84, 77.2441, -7759.84, 855.146, 5999.21, 1001)
 
-[node name="greenbase" type="Polygon2D" parent="SubViewport/Sky2/ForestFiring/FireBackground/GreenGround"]
+[node name="GradientMask" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground"]
+clip_children = 1
+offset_right = 1026.0
+offset_bottom = 1602.0
+texture = SubResource("GradientTexture2D_pc3nm")
+
+[node name="FireRed" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GradientMask"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 1536.0
+texture = SubResource("NoiseTexture2D_flv38")
+expand_mode = 1
+
+[node name="greenbase" type="Polygon2D" parent="SubViewport/Sky2/ForestFiring/FireBackground"]
 texture_repeat = 3
+position = Vector2(584.663, 1344.47)
+scale = Vector2(0.07, 0.246)
 color = Color(0.205095, 0.257809, 0.0715787, 1)
 texture = ExtResource("16_ke8ac")
 texture_scale = Vector2(0.265, 0.265)
 polygon = PackedVector2Array(835, -17, -22, -214, -1040, -299, -1786, -299, -3242, -204, -4417, -289, -5530, -173, -6313, 140, -8407, 1186, 6341, 1047)
 uv = PackedVector2Array(5946.75, 755.834, 5089.75, 558.834, 4071.75, 473.834, 3325.75, 473.834, 1869.75, 568.834, 694.747, 483.834, -418.253, 599.834, -1201.25, 912.834, -3295.25, 1958.83, 11452.7, 1819.83)
 
-[node name="rocks" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GreenGround/greenbase"]
+[node name="rocks" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/greenbase"]
 clip_children = 1
 offset_left = -8801.0
 offset_top = -321.0
@@ -1091,7 +1142,7 @@ offset_right = 6203.0
 offset_bottom = 1184.0
 texture = SubResource("NoiseTexture2D_x33oq")
 
-[node name="Polygon2D2" type="Polygon2D" parent="SubViewport/Sky2/ForestFiring/FireBackground/GreenGround/greenbase/rocks"]
+[node name="Polygon2D2" type="Polygon2D" parent="SubViewport/Sky2/ForestFiring/FireBackground/greenbase/rocks"]
 texture_repeat = 2
 position = Vector2(8800, 323)
 color = Color(0.427493, 0.427493, 0.427493, 1)
@@ -1100,6 +1151,27 @@ texture_offset = Vector2(400, 194.805)
 texture_scale = Vector2(0.27, 0.27)
 polygon = PackedVector2Array(835, -17, -22, -214, -1040, -299, -1786, -299, -3242, -204, -4417, -289, -5530, -173, -6313, 140, -8407, 1186, 6341, 1047)
 uv = PackedVector2Array(5946.75, 755.834, 5089.75, 558.834, 4071.75, 473.834, 3325.75, 473.834, 1869.75, 568.834, 694.747, 483.834, -418.253, 599.834, -1201.25, 912.834, -3295.25, 1958.83, 11452.7, 1819.83)
+
+[node name="GradientMask2" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground"]
+clip_children = 1
+offset_right = 1026.0
+offset_bottom = 1556.0
+texture = SubResource("GradientTexture2D_aa03y")
+
+[node name="Gradient" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GradientMask2"]
+visible = false
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 193.0
+scale = Vector2(16, 7.92)
+texture = SubResource("GradientTexture2D_tdce4")
+
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Sky2/ForestFiring/FireBackground/GradientMask2"]
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 1000.0
+scale = Vector2(2.05691, 1.60588)
+texture = SubResource("NoiseTexture2D_svb7j")
 
 [node name="Lake" type="TextureRect" parent="SubViewport/Sky2"]
 clip_children = 2

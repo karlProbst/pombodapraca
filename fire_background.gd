@@ -8,7 +8,7 @@ var speed = Vector3(10, 0, 0)
 func _process(delta):
 	
 	offset += speed * delta/3
-	offset.y+=sin(offset.x/40)+(delta*5)
+	offset.y+=(delta*10)
 	modulate_texture_offset(offset,delta)
 func modulate_texture_offset(new_offset: Vector3,delta:float):
 
