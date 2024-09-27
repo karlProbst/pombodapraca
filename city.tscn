@@ -829,7 +829,6 @@ scale = Vector2(75.439, 35.4796)
 position = Vector2(2164, 124)
 stream = ExtResource("17_rln1q")
 volume_db = -8.022
-autoplay = true
 max_distance = 1e+10
 
 [node name="SubViewport" type="SubViewport" parent="."]

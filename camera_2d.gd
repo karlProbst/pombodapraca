@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 	zoom = Vector2(lerp(zoom.x,zoom_speed+key_zoom,delta), lerp(zoom.y,zoom_speed+key_zoom,delta))  
 	
 	
+	
 	self.position.x=lerpf(position.x,targetX,delta*5)
 	
 	var targetY=char.position.y+(char.velocity.y/4)
