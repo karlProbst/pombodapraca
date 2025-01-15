@@ -13,5 +13,4 @@ func _process(delta):
 func modulate_texture_offset(new_offset: Vector3,delta:float):
 
 	$GradientFireMask/FireRed.texture.noise.offset=offset
-	$GradientFireMask/FireRed.texture.color_ramp.set_offset(0, sin(offset.x/18)/2)
 	$BlobFireGradientMask/FireTextureRect.texture.noise.offset=offset

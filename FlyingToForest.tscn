@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://bul2va46g72wc"]
+[gd_scene load_steps=103 format=3 uid="uid://bul2va46g72wc"]
 
 [ext_resource type="Script" path="res://Scene1sky.gd" id="1_uull2"]
 [ext_resource type="Script" path="res://fire_background.gd" id="2_4bvrq"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://dn83cl2pk5lou" path="res://circle.png" id="20_w24ku"]
 [ext_resource type="Script" path="res://smokemove.gd" id="21_ejj3w"]
 [ext_resource type="Script" path="res://lake2.gd" id="25_acd37"]
-[ext_resource type="Texture2D" uid="uid://l0fy5s8yfqhx" path="res://icon.svg" id="26_fa8qb"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wtte4"]
 viewport_path = NodePath("SubViewport")
@@ -388,8 +387,8 @@ fill_from = Vector2(0.482906, 1)
 fill_to = Vector2(0.429134, 0.511811)
 
 [sub_resource type="Gradient" id="Gradient_887xo"]
-offsets = PackedFloat32Array(0.0684211, 0.447368, 0.557895, 1)
-colors = PackedColorArray(0.629669, 0.244411, 9.62615e-08, 0, 1, 0.833333, 0, 1, 0.9, 0.405, 0, 0.737255, 0.74, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.557895, 1)
+colors = PackedColorArray(1, 0.833333, 0, 0.537255, 0.9, 0.405, 0, 0.737255, 0.74, 0, 0, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_rojl5"]
 frequency = 0.0194
@@ -561,9 +560,6 @@ _data = {
 "RESET": SubResource("Animation_5k10j"),
 "wavering": SubResource("Animation_tbbbl")
 }
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_heri4"]
-radius = 19.2354
 
 [node name="Node2D" type="Node2D"]
 
@@ -1057,6 +1053,7 @@ size = Vector2i(1024, 2048)
 position = Vector2(541.675, 3194.68)
 script = ExtResource("18_vpwa6")
 speedofDelta = 100.0
+decreaseColorRamp = 2.0
 
 [node name="Sky" type="TextureRect" parent="SubViewport/Sky2"]
 z_index = -1
@@ -1275,14 +1272,3 @@ libraries = {
 }
 autoplay = "wavering"
 speed_scale = 0.184
-
-[node name="StaticBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(991, 91)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("CircleShape2D_heri4")
-
-[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-2, -1)
-scale = Vector2(0.392253, 0.392253)
-texture = ExtResource("26_fa8qb")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://x1ym1qesc7po"]
+[gd_scene load_steps=111 format=3 uid="uid://x1ym1qesc7po"]
 
 [ext_resource type="Script" path="res://sky.gd" id="1_vfur6"]
 [ext_resource type="Texture2D" uid="uid://cf8uu7od43r0a" path="res://smokeTexture.tres" id="1_wrvw3"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://i4tj5hl188g0" path="res://assets/verve/concretechapisco1.jpg" id="7_ge8fb"]
 [ext_resource type="Texture2D" uid="uid://cp1ojwgeoovvl" path="res://lightNoiseForeground.tres" id="8_qo32f"]
 [ext_resource type="Texture2D" uid="uid://cmevlr18buot3" path="res://assets/verve/bar1.png" id="11_7wral"]
-[ext_resource type="Texture2D" uid="uid://c1dwnp60h2kr4" path="res://assets/buildingimages/buildin7-topaz-upscale-4x.png" id="11_d70gv"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="11_epq6p"]
 [ext_resource type="Script" path="res://sky2.gd" id="11_i3f4c"]
 [ext_resource type="Texture2D" uid="uid://icytpa8ryift" path="res://assets/Photos/brown_Wall.jpg" id="12_341n7"]
@@ -21,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://b448hjkq0y3ue" path="res://assets/Photos/telhado1.jpg" id="13_c8kch"]
 [ext_resource type="Texture2D" uid="uid://dy4es31rvvhh" path="res://assets/buildingimages/abondonedIndustrialulding-treated-lighting-upscale-2x.png" id="15_jtk25"]
 [ext_resource type="Shader" path="res://grain_and_clamp.gdshader" id="15_x144t"]
-[ext_resource type="Texture2D" uid="uid://csuiqtshy7ufg" path="res://assets/Photos/abondonedIndustrialulding.png" id="16_1y7va"]
 [ext_resource type="AudioStream" uid="uid://otif71h34evi" path="res://My Song 46.mp3" id="17_rln1q"]
 [ext_resource type="Texture2D" uid="uid://dxxhab1h4w5f6" path="res://lightNoiseback.tres" id="20_mjw1h"]
 [ext_resource type="Texture2D" uid="uid://c3i5gew4bre4" path="res://lightNoiseMiddle.tres" id="21_c00mq"]
@@ -162,7 +160,7 @@ size = Vector2(356, 271)
 size = Vector2(1079, 1313)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkpo8"]
-size = Vector2(1067, 248)
+size = Vector2(1043.5, 330.147)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3c6mt"]
 radius = 84.0
@@ -686,34 +684,10 @@ texture_scale = Vector2(1.392, 5.632)
 polygon = PackedVector2Array(-431, 199.51, -430, 99.5098, -473, 90.9314, -548, 103.431, -601, 103.431, -667, 91.6667, -736, 103.431, -791, 103.431, -861, 90.6863, -926, 101.716, -984, 101.716, -1046, 90.6863, -1113, 101.716, -1168, 101.716, -1229, 90.9314, -1293, 102.451, -1295, 199.265)
 uv = PackedVector2Array(1254.25, 185.729, 1255.69, 41.0457, 1193.48, 28.6341, 1084.97, 46.7196, 1008.29, 46.7196, 912.795, 29.698, 812.963, 46.7196, 733.387, 46.7196, 632.109, 28.2795, 538.064, 44.2373, 454.148, 44.2373, 364.444, 28.2795, 267.506, 44.2373, 187.93, 44.2373, 99.6732, 28.6341, 7.07562, 45.3011, 4.18201, 185.375)
 
-[node name="basepolygonBuildinmg2" type="Polygon2D" parent="ForeBuildings/predio3_abndoned"]
+[node name="basepolygonBuildinmg2" type="CollisionPolygon2D" parent="ForeBuildings/predio3_abndoned"]
 position = Vector2(3837, -657.447)
 scale = Vector2(3.713, 8.057)
-texture = ExtResource("15_jtk25")
-texture_offset = Vector2(89.785, -25.585)
-texture_scale = Vector2(1.392, 5.632)
 polygon = PackedVector2Array(-431, 199.51, -430, 99.5098, -473, 90.9314, -548, 103.431, -601, 103.431, -667, 91.6667, -736, 103.431, -791, 103.431, -861, 90.6863, -926, 101.716, -984, 101.716, -1046, 90.6863, -1113, 101.716, -1168, 101.716, -1229, 90.9314, -1293, 102.451, -1295, 199.265)
-uv = PackedVector2Array(1254.25, 185.729, 1255.69, 41.0457, 1193.48, 28.6341, 1084.97, 46.7196, 1008.29, 46.7196, 912.795, 29.698, 812.963, 46.7196, 733.387, 46.7196, 632.109, 28.2795, 538.064, 44.2373, 454.148, 44.2373, 364.444, 28.2795, 267.506, 44.2373, 187.93, 44.2373, 99.6732, 28.6341, 7.07562, 45.3011, 4.18201, 185.375)
-
-[node name="predio4" type="StaticBody2D" parent="ForeBuildings"]
-position = Vector2(4085, 182)
-scale = Vector2(1, 4.08)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ForeBuildings/predio4"]
-position = Vector2(533.5, 125)
-shape = SubResource("RectangleShape2D_gkpo8")
-
-[node name="ColorRect10" type="TextureRect" parent="ForeBuildings/predio4"]
-visible = false
-offset_right = 1067.0
-offset_bottom = 251.0
-texture = ExtResource("11_d70gv")
-
-[node name="AbondonedIndustrialulding" type="Sprite2D" parent="ForeBuildings/predio4"]
-visible = false
-position = Vector2(-863, 144.608)
-scale = Vector2(1, 0.245098)
-texture = ExtResource("16_1y7va")
 
 [node name="ForeWater" type="Node2D" parent="."]
 
